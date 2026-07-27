@@ -555,12 +555,12 @@ st.set_page_config(
     page_title="Timesheet Generator", page_icon="📅", layout="centered"
 )
 
-st.title("📋 Thaliwe's Timesheet Generator")
+st.title("📋Phemelo's Timesheet Generator")
 st.write(
     "Enter your details, pick the **starting Monday** for the 4-week period, and click download."
 )
 
-# Name & Student ID entries
+# Name & ID entries
 full_name = st.text_input("Name & Surname:")
 student_id = st.text_input("Student ID:")
 
@@ -577,10 +577,10 @@ if st.button("Generate Timesheet PDF", type="primary"):
     else:
         pdf_buffer = create_pdf_bytes(selected_date, full_name, student_id)
 
-        st.success("Timesheet generated successfully!")
+        st.success("Your Timesheet generated successfully!")
         st.download_button(
             label="📥 Download PDF",
             data=pdf_buffer,
-            file_name=f"Thaliwe_Timesheet_{selected_date.strftime('%Y_%m_%d')}.pdf",
+            file_name=f"{full_name}_Timesheet_{selected_date.strftime('%Y_%m_%d')}.pdf",
             mime="application/pdf",
         )
